@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+
+<h1>Menampilkan bilangan prima dari input</h1>
+<h2>Masukkan sembarang angka</h2>
+
+<input id = "datainput" type="number" />
+<input type = "button" value="klik" onclick="baca();"/>
+<p id="tampilkan"></p>
+
+<script>
+	function tes_prima (n) 
+	{
+		for(let i=2; i<n; i++)
+		{
+			if(n % i ==0)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+		
+	function hasil (max) 
+	{	let bilprima = [];
+		for(let i = 2; i<=max; i++)
+		{
+			if(tes_prima(i))
+			{
+			
+				bilprima.push(i);
+		
+			}
+		}
+		return bilprima;
+	}	
+	
+	function baca ()
+	{
+		var angka = document.getElementById('datainput').value;
+		var hitung = hasil(angka);
+		document.getElementById("tampilkan").innerHTML = "Bilangan prima sebelum " + angka + ":<br><ul>";
+        for (let i = 0; i < hitung.length; i++) {
+            document.getElementById("tampilkan").innerHTML += "<li>" + hitung[i] + "</li>";
+        }
+        document.getElementById("tampilkan").innerHTML += "</ul>";
+	}
+</script>
+	
+</body>
+</html>
